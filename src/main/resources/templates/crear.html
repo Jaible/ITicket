@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Crear evento</title>
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container">
+
+            <div class="card-header bg-black text-white"> </div>
+            <div class="card-body">
+
+                <div class="container">
+                    <form th:object = "${concierto}"
+                          th:action="@{/save}"
+                          method="POST"
+                          >
+                        <input type="hidden" th:field="*{id}">
+                        <div class="form-group mb-3 row">
+                            <label class="col-md-2 col-form-label" for="artista">Artista</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control form-control-sm col-md-6" th:field="*{artista}" placeholder= "Nombre del Artista" id="artista" aria-describedby="emailHelp">
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3 row">
+                            <label class="form-control-sm col-md-2 col-form-label" for="costo">Costo</label>
+                            <div class="col-sm-10">
+                                <input type="text" th:field="*{costo}" class="form-control form-control-sm col-md-6" placeholder= "Costo de la entrada" id="costo" aria-describedby="emailHelp">
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3 row">
+                            <label class="form-control-sm col-form-label col-md-2" for="fecha">Fecha</label>
+                            <div class="col-sm-10">
+                                <input type="text" th:field="*{fecha}" class="form-control form-control-sm col-md-6" placeholder= "yyyy/MM/dd" id="fecha" aria-describedby="emailHelp">
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3 row">
+                            <label class="form-control-sm col-form-label col-md-2" for="capacidad">Capacidad</label>
+                            <div class="col-sm-10">
+                                <input type="text" th:field="*{capacidad}" class="form-control form-control-sm col-md-6" placeholder= "Capacidad maxima" id="capacidad" aria-describedby="emailHelp">
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3 row">
+                            <label class="form-control-sm col-form-label col-md-2" for="lugar">Lugar</label>
+                            <div class="col-sm-10">
+                                <input type="text" th:field="*{lugar}" class="form-control form-control-sm col-md-6" placeholder= "Lugar" id="lugar" aria-describedby="emailHelp">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" value="Guardar">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
